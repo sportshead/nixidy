@@ -233,8 +233,7 @@ in
             echo "Applying CRDs"
             ${pkgs.kubectl}/bin/kubectl apply \
               -f $out/crds.yml \
-              --prune --selector "${labelPrefix}/crds=${env}" \
-              --prune-allowlist "apiextensions.k8s.io/v1/CustomResourceDefinition"
+              --server-side
 
             echo ""
             echo "Applying namespaces"
